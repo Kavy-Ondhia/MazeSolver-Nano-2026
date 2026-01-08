@@ -1,0 +1,21 @@
+# Arduino IDE temporary files
+applet/
+*.hex
+*.elf
+*.o
+*.a
+*.d
+*.pde
+
+# Build folders
+build/
+bin/
+gen/
+
+# Desktop/OS specific
+.DS_Store
+Thumbs.db
+
+# VS Code / PlatformIO
+.vscode/
+.pio/
