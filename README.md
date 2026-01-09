@@ -41,6 +41,37 @@ The project is currently in the **Schematic Design** phase, focusing on:
 | **A4 (SDA)** | SSD1306 | OLED Data |
 | **A5 (SCL)** | SSD1306 | OLED Clock |
 
+## 🧠 Software Logic & Path Optimization
+
+The robot's intelligence is divided into three layers: **Perception**, **Control**, and **Strategy**.
+
+### 1. Perception & Control (PID)
+* **The Error:** Using the QTR-8RC, we calculate the robot's position relative to the center (3500). 
+    * $Error = 3500 - \text{Current Reading}$
+* **PID Math:** We use Proportional (Muscle) and Derivative (Brakes) logic to calculate correction.
+    * `Correction = (Kp * error) + (Kd * (error - lastError))`
+    * `LeftSpeed = Base + Correction` | `RightSpeed = Base - Correction`
+
+### 2. The Discovery Phase (Dry Run)
+The robot uses a **Preferential Wall-Following Rule** (Straight > Left > Right). 
+* **The Log:** Every move is recorded in a memory array.
+* **Encoder Mapping:** Encoders track distance in millimeters to ensure precise turns and junction detection.
+
+### 3. Path Optimization (The "Aha!" Moment)
+The robot simplifies its recorded path by removing dead ends (represented as 'B' for Back).
+* **Logic:** `Left -> Back -> Left` is simplified to `Straight`.
+* **Optimization Example:** `L -> B -> L` becomes `S`. This "shrinks" the journey for the final run.
+
+### 4. Advanced Mapping & Exploration
+To cover the entire map, the robot utilizes a coordinate-based Node system:
+```cpp
+struct Node {
+  long x;           // X coordinate from encoders
+  long y;           // Y coordinate from encoders
+  bool visited[3];  // [Left, Straight, Right]
+  int parentNode;   // Back-tracking reference
+};
+
 ## 📸 Component Gallery
 <p align="center">
   <img src="media/wheels.jpeg" width="30%" />
