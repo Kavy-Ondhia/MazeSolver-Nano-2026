@@ -41,6 +41,17 @@ The project is currently in the **Schematic Design** phase, focusing on:
 | **A4 (SDA)** | SSD1306 | OLED Data |
 | **A5 (SCL)** | SSD1306 | OLED Clock |
 
+## 📸 Component Gallery
+<p align="center">
+  <img src="media/wheels.jpeg" width="30%" />
+  <img src="media/motors.jpeg" width="30%" />
+  <img src="media/lipo_batteries.jpeg" width="30%" />
+</p>
+<p align="center">
+  <img src="media/sensor_array(1).jpeg" width="45%" />
+  <img src="media/sensor_array(2).jpeg" width="45%" />
+</p>
+
 ## 📂 Project Structure
 * `/src`: Final Arduino (.ino) and configuration (.h) files.
 * `/hardware`: Schematic diagrams and PCB layouts (In Progress).
