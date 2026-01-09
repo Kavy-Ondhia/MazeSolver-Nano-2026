@@ -70,7 +70,8 @@ struct Node {
   long y;           // Y coordinate from encoders
   bool visited[3];  // [Left, Straight, Right]
   int parentNode;   // Back-tracking reference
-};```
+};
+```
 
 ## 📸 Component Gallery
 <p align="center">
