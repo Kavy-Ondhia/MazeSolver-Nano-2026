@@ -5,9 +5,11 @@
 #define MOTOR_L_PWM 9
 #define MOTOR_L_IN1 7
 #define MOTOR_L_IN2 8
+
 #define MOTOR_R_PWM 10
 #define MOTOR_R_IN1 4
 #define MOTOR_R_IN2 5
+
 #define MOTOR_STBY 6
 
 // --- ENCODER PINS ---
