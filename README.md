@@ -1,11 +1,50 @@
+# MazeSolver-Nano-2026 🏎️💨
+
+A high-performance line-following and maze-solving robot built on the Arduino Nano platform. This project utilizes PID control and magnetic encoders for precision navigation.
+
+## 🛠 Hardware Design Phase
+I have received the core mechanical components (N20 motors, wheels) and the sensor array. 
+The project is currently in the **Schematic Design** phase, focusing on:
+- **Power regulation:** Implementing a Buck Converter to step down battery voltage for the Arduino Nano and sensors.
+- **H-Bridge logic:** Integrating the TB6612FNG driver for efficient motor control.
+- **Encoder routing:** Mapping magnetic encoder signals to interrupt pins for precise PID feedback.
+
+## 👥 Development Team
+* **Kavy Ondhia** (@Kavy-Ondhia) - Firmware Architecture & Logic
+* **Karunya Jajoo** (@karunya-jajoo) - Hardware Schematic & PCB Design
+
 ## 🛠 Hardware Specifications
 
-| Component | Purpose | DataSheet/Ref |
+| Component | Purpose | Datasheet/Reference |
 | :--- | :--- | :--- |
-| **Arduino Nano** | Main Controller | [Link](https://www.arduino.cc/en/uploads/Main/ArduinoNanoManual23.pdf) |
-| **TB6612FNG** | Motor Driver | [Link](https://www.pololu.com/file/0J86/TB6612FNG.pdf) |
-| **N20 Motors** | 6V 200RPM Drive | [Link](https://components101.com/motors/n20-micro-gear-motor) |
-| **QTR-8RC** | IR Sensor Array | [Link](https://www.pololu.com/docs/0J12) |
-| **SSD1306 OLED** | Debugging Display | [Link](https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf) |
-| **HC-05** | Bluetooth Module | [Link](https://components101.com/wireless/hc-05-bluetooth-module-pinout-datasheet) |
-| **Buck Converter** | 5V Regulation | [Link](https://www.ti.com/lit/ds/symlink/lm2596.pdf) |
+| **Arduino Nano** | Main Controller | [Official Manual](https://docs.arduino.cc/resources/datasheets/A000005-datasheet.pdf) |
+| **TB6612FNG** | Motor Driver | [Toshiba Datasheet](https://www.sparkfun.com/datasheets/Robotics/TB6612FNG.pdf) |
+| **N20 Motors** | 6V 200RPM w/ Encoders | [Technical Specs](https://www.handsontec.com/dataspecs/motor/N20-Motor.pdf) |
+| **QTR-8RC** | IR Sensor Array | [Pololu Documentation](https://www.pololu.com/docs/0J12) |
+| **SSD1306 OLED** | Debugging Display | [Adafruit Datasheet](https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf) |
+| **HC-05** | Bluetooth Module | [HC-05 Datasheet](https://components101.com/sites/default/files/component_datasheet/HC-05-Datasheet.pdf) |
+| **LM2596 Buck** | 5V Regulation | [TI Datasheet](https://www.ti.com/lit/ds/symlink/lm2596.pdf) |
+
+## 🔌 Proposed Pin Mapping (Nano)
+*This table serves as the "contract" for the schematic design.*
+
+| Nano Pin | Component | Function |
+| :--- | :--- | :--- |
+| **D2** | Encoder Left | Interrupt A |
+| **D3** | Encoder Right | Interrupt B |
+| **D4 / D5** | TB6612 (BIN1/2) | Right Motor Direction |
+| **D6** | TB6612 (STBY) | Driver Standby (Active High) |
+| **D7 / D8** | TB6612 (AIN1/2) | Left Motor Direction |
+| **D9** | TB6612 (PWMA) | Left Motor Speed (PWM) |
+| **D10** | TB6612 (PWMB) | Right Motor Speed (PWM) |
+| **A0 - A7** | QTR-8RC | IR Reflectance Data |
+| **A4 (SDA)** | SSD1306 | OLED Data |
+| **A5 (SCL)** | SSD1306 | OLED Clock |
+
+## 📂 Project Structure
+* `/src`: Final Arduino (.ino) and configuration (.h) files.
+* `/hardware`: Schematic diagrams and PCB layouts (In Progress).
+* `/media`: Component photos and project progress shots.
+
+---
+*Created by [Kavy Ondhia](https://github.com/Kavy-Ondhia)*
