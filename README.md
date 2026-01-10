@@ -31,7 +31,9 @@ The project is currently in the **Schematic Design** phase, focusing on:
 | Standard Pin | KiCad Symbol Label | Component | Function |
 | :--- | :--- | :--- | :--- |
 | **D2** | **D2** (Right Pin 11) | Encoder Left | Interrupt A |
+| **D12** | **D12** (Right Pin 1) | Encoder Right | Direction Tracking |
 | **D3** | **D3** (Right Pin 10) | Encoder Right | Interrupt B |
+| **D11** | **D11** (Right Pin 2) | Encoder Left | Direction Tracking |
 | **D4** | **D4** (Right Pin 9) | TB6612 (BIN1) | Right Motor Dir |
 | **D5** | **D5** (Right Pin 8) | TB6612 (BIN2) | Right Motor Dir |
 | **D6** | **D6** (Right Pin 7) | TB6612 (STBY) | Driver Standby (Active High) |
