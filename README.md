@@ -30,25 +30,28 @@ The project is currently in the **Schematic Design** phase, focusing on:
 
 | Standard Pin | KiCad Symbol Label | Component | Function |
 | :--- | :--- | :--- | :--- |
+| **D0** | **D0 (RX)** (Right Pin 14) | Finish LED | Indicator (Disconnect for Upload) |
 | **D2** | **D2** (Right Pin 11) | Encoder Left | Interrupt A (Phase A) |
 | **D11** | **D11** (Right Pin 2) | Encoder Left | Phase B (Dir Tracking) |
 | **D3** | **D3** (Right Pin 10) | Encoder Right | Interrupt B (Phase A) |
 | **D12** | **D12** (Right Pin 1) | Encoder Right | Phase B (Dir Tracking) |
 | **D4** | **D4** (Right Pin 9) | TB6612 (BIN1) | Right Motor Dir |
 | **D5** | **D5** (Right Pin 8) | TB6612 (BIN2) | Right Motor Dir |
-| **D6** | **D6** (Right Pin 7) | TB6612 (STBY) | Driver Standby (Active High) |
+| **D6** | **D6** (Right Pin 7) | QTR-8RC Pin 5 | IR Reflectance (Moved from A4) |
 | **D7** | **D7** (Right Pin 6) | TB6612 (AIN1) | Left Motor Dir |
 | **D8** | **D8** (Right Pin 5) | TB6612 (AIN2) | Left Motor Dir |
 | **D9** | **D9** (Right Pin 4) | TB6612 (PWMA) | Left Motor Speed (PWM) |
 | **D10** | **D10** (Right Pin 3) | TB6612 (PWMB) | Right Motor Speed (PWM) |
+| **D13** | **D13** (Left Pin 1) | QTR-8RC Pin 6 | IR Reflectance (Moved from A5) |
 | **A0** | **D14** (Left Pin 4) | QTR-8RC Pin 1 | IR Reflectance |
 | **A1** | **D15** (Left Pin 5) | QTR-8RC Pin 2 | IR Reflectance |
 | **A2** | **D16** (Left Pin 6) | QTR-8RC Pin 3 | IR Reflectance |
 | **A3** | **D17** (Left Pin 7) | QTR-8RC Pin 4 | IR Reflectance |
-| **A4** | **D18** (Left Pin 8) | QTR-8RC Pin 5 / OLED SDA | IR / Data |
-| **A5** | **D19** (Left Pin 9) | QTR-8RC Pin 6 / OLED SCL | IR / Clock |
+| **A4** | **D18** (Left Pin 8) | OLED SDA | Data |
+| **A5** | **D19** (Left Pin 9) | OLED SCL | Clock |
 | **A6** | **A6** (Left Pin 10) | QTR-8RC Pin 7 | IR Reflectance |
 | **A7** | **A7** (Left Pin 11) | QTR-8RC Pin 8 | IR Reflectance |
+| **EXTERNAL** | **N/A** | TB6612 (STBY) | Connect to VCC (5V) |
 
 ## 🧠 Software Logic & Path Optimization
 
