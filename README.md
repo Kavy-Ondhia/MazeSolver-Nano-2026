@@ -53,9 +53,10 @@ The project is currently in the **Schematic Design** phase, focusing on:
 | **A7** | **A7** (Left Pin 11) | QTR-8RC Pin 8 | IR Reflectance |
 | **EXTERNAL** | **N/A** | TB6612 (STBY) | Connect to VCC (5V) |
 
-### 🛠 Hardware Design
-![Robot Schematic](hardware\schematic\Schematic_jpg.jpg)
-[Download PDF Version](hardware\schematic\Schematic_pdf.pdf)
+## 🛠 Hardware Design
+
+![Robot Schematic](hardware/schematic/Schematic_jpg.jpg)
+[Download PDF Version](hardware/schematic/Schematic_pdf.pdf)
 
 ## 🧠 Software Logic & Path Optimization
 
