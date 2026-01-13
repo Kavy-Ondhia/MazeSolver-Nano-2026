@@ -1,4 +1,4 @@
-# MazeSolver-Nano-2026 🏎️💨
+<h1 align="center">MazeSolver-Nano-2026 🏎️💨</h1>
 
 A high-performance line-following and maze-solving robot built on the Arduino Nano platform. This project utilizes PID control and magnetic encoders for precision navigation.
 
