@@ -2,6 +2,9 @@
 
 A high-performance line-following and maze-solving robot built on the Arduino Nano platform. This project utilizes PID control and magnetic encoders for precision navigation.
 
+![Project Status](https://img.shields.io/badge/Status-Development-orange)
+![Platform](https://img.shields.io/badge/Platform-Arduino_Nano-blue)
+
 ## 🛠 Hardware Design Phase
 I have received the core mechanical components (N20 motors, wheels) and the sensor array. 
 The project is currently in the **Schematic Design** phase, focusing on:
