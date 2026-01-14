@@ -98,6 +98,9 @@ struct Node {
 
 ## 📸 Component Gallery
 <p align="center">
+  <img src="media/microcontroller.jpeg" width="90%" />
+</p>
+<p align="center">
   <img src="media/wheels.jpeg" width="30%" />
   <img src="media/motors.jpeg" width="30%" />
   <img src="media/lipo_batteries.jpeg" width="30%" />
