@@ -4,58 +4,102 @@
 QTRSensors qtr;
 uint16_t sensorValues[SENSOR_COUNT];
 
+// PID Variables
+int lastError = 0;
+int baseSpeed = 150; // Cruising speed (Adjust this first)
+int maxSpeed = 255;  // Max PWM limit
+
 void setup() {
   Serial.begin(9600);
   
-  // 1. Initialize Motors
+  // 1. Initialize Hardware
   setupMotors();
-  
-  // 2. Initialize Encoders
   setupEncoders();
   
-  // 3. Initialize Sensors
+  // 2. Initialize Sensors
   qtr.setTypeRC();
-  // Uses the mapping from Configuration.h
   const uint8_t pins[] = SENSOR_PINS;
   qtr.setSensorPins(pins, SENSOR_COUNT);
   
-  // 4. Calibration Sequence
-  Serial.println("Starting Calibration... Robot will spin.");
+  // 3. Calibration Dance (Spins in place)
+  calibrateRobot();
+}
+
+void loop() {
+  // 1. Get position (0 to 7000)
+  // readLineBlack handles the weighted average for us
+  uint16_t position = qtr.readLineBlack(sensorValues);
+
+  // 2. Calculate Error (3500 is the center)
+  int error = (int)position - 3500;
+
+  // 3. PID Calculation
+  // motorSpeed is the "correction" value
+  int motorSpeed = (Kp * error) + (Kd * (error - lastError));
+  lastError = error;
+
+  // 4. Set Individual Motor Speeds
+  int leftMotorSpeed = baseSpeed + motorSpeed;
+  int rightMotorSpeed = baseSpeed - motorSpeed;
+
+  // 5. Check for Maze Intersections (LSRB Logic Pre-work)
+  // If all sensors see white (Dead End)
+  if (position == 0 && sensorValues[0] < 100 && sensorValues[7] < 100) {
+      // Robot lost the line or hit a dead end
+      // For now, let's spin to find the line again
+      driveMotors(-80, 80); 
+  } 
+  // If all sensors see black (Cross-section / T-Junction)
+  else if (sensorValues[0] > 800 && sensorValues[7] > 800) {
+      // Logic for Maze: Decision point
+      // For now, keep going straight
+      driveMotors(baseSpeed, baseSpeed);
+  }
+  // 6. Normal Line Following
+  else {
+      leftMotorSpeed = constrain(leftMotorSpeed, 0, maxSpeed);
+      rightMotorSpeed = constrain(rightMotorSpeed, 0, maxSpeed);
+      driveMotors(leftMotorSpeed, rightMotorSpeed);
+  }
+}
+
+// --- HELPER FUNCTIONS ---
+
+void driveMotors(int left, int right) {
+  // Left Motor Direction
+  if (left >= 0) {
+    digitalWrite(MOTOR_L_IN1, HIGH);
+    digitalWrite(MOTOR_L_IN2, LOW);
+  } else {
+    digitalWrite(MOTOR_L_IN1, LOW);
+    digitalWrite(MOTOR_L_IN2, HIGH);
+  }
+  analogWrite(MOTOR_L_PWM, abs(left));
+
+  // Right Motor Direction
+  if (right >= 0) {
+    digitalWrite(MOTOR_R_IN1, HIGH);
+    digitalWrite(MOTOR_R_IN2, LOW);
+  } else {
+    digitalWrite(MOTOR_R_IN1, LOW);
+    digitalWrite(MOTOR_R_IN2, HIGH);
+  }
+  analogWrite(MOTOR_R_PWM, abs(right));
+}
+
+void calibrateRobot() {
+  Serial.println("Starting Calibration...");
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, HIGH);
 
   for (uint16_t i = 0; i < 400; i++) {
-    // Spin in place
-    digitalWrite(MOTOR_L_IN1, LOW);
-    digitalWrite(MOTOR_L_IN2, HIGH);
-    analogWrite(MOTOR_L_PWM, CALIBRATION_SPEED);
-
-    digitalWrite(MOTOR_R_IN1, HIGH);
-    digitalWrite(MOTOR_R_IN2, LOW);
-    analogWrite(MOTOR_R_PWM, CALIBRATION_SPEED);
-
-    qtr.calibrate(); 
+    driveMotors(-CALIBRATION_SPEED, CALIBRATION_SPEED); // Spin in place
+    qtr.calibrate();
   }
-
-  // Stop motors
-  analogWrite(MOTOR_L_PWM, 0);
-  analogWrite(MOTOR_R_PWM, 0);
+  
+  driveMotors(0, 0); // Stop
   digitalWrite(LED_BUILTIN, LOW);
-  
-  Serial.println("Calibration Complete.");
-}
-
-void loop() {
-  // Read calibrated sensor data
-  qtr.readCalibrated(sensorValues); 
-  
-  // Print values (0 to 1000) to Serial Monitor
-  for (uint8_t i = 0; i < SENSOR_COUNT; i++) {
-    Serial.print(sensorValues[i]);
-    Serial.print("\t");
-  }
-  Serial.println();
-  delay(100);
+  Serial.println("Calibration Done.");
 }
 
 void setupMotors() {
@@ -66,8 +110,7 @@ void setupMotors() {
   pinMode(MOTOR_R_IN1, OUTPUT);
   pinMode(MOTOR_R_IN2, OUTPUT);
   pinMode(MOTOR_STBY, OUTPUT);
-  
-  digitalWrite(MOTOR_STBY, HIGH); 
+  digitalWrite(MOTOR_STBY, HIGH);
 }
 
 void setupEncoders() {
