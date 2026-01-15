@@ -61,8 +61,8 @@ The project is currently in the **Schematic Design** phase, focusing on:
 
 ## 🛠 Hardware Design
 
-![Robot Schematic](hardware/schematic/Schematic_jpg/Schematic_v1.2_photo.jpg)
-[Download PDF Version](hardware/schematic/Schematic_pdf/Schematic_v1.2.pdf)
+![Robot Schematic](hardware/schematic/Schematic_jpg/Schematic_v1.3_photo.jpg)
+[Download PDF Version](hardware/schematic/Schematic_pdf/Schematic_v1.3.pdf)
 
 ## 🧠 Software Logic & Path Optimization
 
