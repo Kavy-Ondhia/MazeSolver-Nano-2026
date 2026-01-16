@@ -5,12 +5,27 @@ A high-performance line-following and maze-solving robot built on the Arduino Na
 ![Project Status](https://img.shields.io/badge/Status-Development-orange)
 ![Platform](https://img.shields.io/badge/Platform-Arduino_Nano-blue)
 
-## 🛠 Hardware Design Phase
-I have received the core mechanical components (N20 motors, wheels) and the sensor array. 
-The project is currently in the **Schematic Design** phase, focusing on:
-- **Power regulation:** Implementing a Buck Converter to step down battery voltage for the Arduino Nano and sensors.
-- **H-Bridge logic:** Integrating the TB6612FNG driver for efficient motor control.
-- **Encoder routing:** Mapping magnetic encoder signals to interrupt pins for precise PID feedback.
+<p align="center">
+  <img src="media/prototype_1.jpg" width="90%" />
+</p>
+<p align="center">
+  <img src="media/prototype_2.jpg" width="45%" />
+  <img src="media/prototype_3.jpg" width="45%" />
+</p>
+
+## 🛠 Prototyping & PCB Manufacturing Phase
+The project has moved from theoretical design to **active hardware-in-the-loop (HIL) testing**. I am currently validating a breadboard prototype to finalize signal routing and power stability for the custom PCB fabrication.
+
+### **Current Progress:**
+* **Prototype Controller:** Arduino Nano (ATmega328P) using a logic-stable common ground architecture.
+* **Dual Motor Drive:** Integrated the **DRV8833 Dual H-Bridge** for the prototype phase, utilizing PWM-direct control to manage motor velocity and direction.
+* **Sensor Integration:** Successfully calibrated a **QTR-8RC 8-channel array**. Pin mapping has been optimized (A0–A5, D7, D13) to prevent conflicts with motor PWM timers.
+* **Precise Navigation:** Magnetic encoders are mapped to **Hardware Interrupt pins (D2, D3)** to ensure zero-loss pulse counting for PID speed control and distance tracking.
+
+### **PCB Design Priorities:**
+* **Signal Integrity:** Separating high-current motor traces from sensitive Encoder and Sensor signal lines to reduce Electromagnetic Interference (EMI).
+* **Power Rail Optimization:** Implementing a **Buck Converter** to efficiently step down LiPo battery voltage for the logic circuit, significantly reducing heat compared to linear regulators.
+* **Modular Footprint:** The PCB layout is being designed with a modular header to support both **DRV8833** and **TB6612FNG** driver footprints for testing flexibility.
 
 ## 👥 Development Team
 * **Kavy Ondhia** (@Kavy-Ondhia) - Firmware Architecture & Logic
