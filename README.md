@@ -44,8 +44,11 @@ The project has moved from theoretical design to **active hardware-in-the-loop (
 * **Modular Footprint:** The PCB layout is being designed with a modular header to support both **DRV8833** and **TB6612FNG** driver footprints for testing flexibility.
 
 ## 👥 Development Team
-* **Kavy Ondhia** (@Kavy-Ondhia) - Firmware Architecture & Logic
-* **Karunya Jajoo** (@karunya-jajoo) - Hardware Schematic & PCB Design
+* **Kavy Ondhia** ([@Kavy-Ondhia](https://github.com/Kavy-Ondhia))  
+  *Lead Engineer — Firmware Architecture, Logic, & Hardware V2 (KiCad)*
+  
+* **Karunya Jajoo** ([@karunya-jajoo](https://github.com/karunya-jajoo))  
+  *Contributor — Initial Hardware Concept & V1 Schematic*
 
 ## 🛠 Hardware Specifications
 
