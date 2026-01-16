@@ -5,27 +5,29 @@ A high-performance line-following and maze-solving robot built on the Arduino Na
 ![Project Status](https://img.shields.io/badge/Status-Development-orange)
 ![Platform](https://img.shields.io/badge/Platform-Arduino_Nano-blue)
 
-<table style="width:100%; border-collapse: collapse; border: none; table-layout: fixed;">
-  <tr>
-    <td rowspan="2" style="width: 60%; border: none; padding: 2px;">
-      <img src="media/prototype_1.jpg" 
-           style="width:100%; height: 504px; object-fit: cover; border-radius: 8px;" 
-           alt="Prototype Side View" />
-    </td>
-    <td style="width: 40%; border: none; padding: 2px;">
-      <img src="media/prototype_2.jpg" 
-           style="width:100%; height: 250px; object-fit: cover; border-radius: 8px;" 
-           alt="Prototype Front View" />
-    </td>
-  </tr>
-  <tr>
-    <td style="border: none; padding: 2px;">
-      <img src="media/prototype_3.jpg" 
-           style="width:100%; height: 250px; object-fit: cover; border-radius: 8px;" 
-           alt="Prototype Top View" />
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <table style="width:100%; border-collapse: collapse; border: none; table-layout: fixed;">
+    <tr>
+      <td rowspan="2" style="width: 60%; border: none; padding: 2px;">
+        <img src="media/prototype_1.jpg" 
+             style="width: 420px; height: 504px; object-fit: cover; border-radius: 8px;" 
+             alt="Prototype Side View" />
+      </td>
+      <td style="width: 40%; border: none; padding: 2px;">
+        <img src="media/prototype_2.jpg" 
+             style="width:220px; height: 250px; object-fit: cover; border-radius: 8px;" 
+             alt="Prototype Front View" />
+      </td>
+    </tr>
+    <tr>
+      <td style="border: none; padding: 2px;">
+        <img src="media/prototype_3.jpg" 
+             style="width:220px; height: 250px; object-fit: cover; border-radius: 8px;" 
+             alt="Prototype Top View" />
+      </td>
+    </tr>
+  </table>
+</div>
 
 ## 🛠 Prototyping & PCB Manufacturing Phase
 The project has moved from theoretical design to **active hardware-in-the-loop (HIL) testing**. I am currently validating a breadboard prototype to finalize signal routing and power stability for the custom PCB fabrication.
