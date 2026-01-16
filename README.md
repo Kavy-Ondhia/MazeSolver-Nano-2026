@@ -5,13 +5,21 @@ A high-performance line-following and maze-solving robot built on the Arduino Na
 ![Project Status](https://img.shields.io/badge/Status-Development-orange)
 ![Platform](https://img.shields.io/badge/Platform-Arduino_Nano-blue)
 
-<p align="center">
-  <img src="media/prototype_1.jpg" width="90%" />
-</p>
-<p align="center">
-  <img src="media/prototype_2.jpg" width="45%" />
-  <img src="media/prototype_3.jpg" width="45%" />
-</p>
+<table style="width:100%; border-collapse: collapse; border: none;">
+  <tr>
+    <td colspan="2" style="border: none; padding: 5px;">
+      <img src="media/prototype_1.jpg" style="width:100%; display: block; margin: 0 auto;" />
+    </td>
+  </tr>
+  <tr>
+    <td style="width:50%; border: none; padding: 5px;">
+      <img src="media/prototype_2.jpg" style="width:100%;" />
+    </td>
+    <td style="width:50%; border: none; padding: 5px;">
+      <img src="media/prototype_3.jpg" style="width:100%;" />
+    </td>
+  </tr>
+</table>
 
 ## 🛠 Prototyping & PCB Manufacturing Phase
 The project has moved from theoretical design to **active hardware-in-the-loop (HIL) testing**. I am currently validating a breadboard prototype to finalize signal routing and power stability for the custom PCB fabrication.
