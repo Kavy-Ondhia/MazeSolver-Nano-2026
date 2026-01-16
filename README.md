@@ -95,8 +95,8 @@ The project has moved from theoretical design to **active hardware-in-the-loop (
 
 ## 🛠 Hardware Design
 
-![Robot Schematic](hardware/schematic/Schematic_jpg/Schematic_v1.3_photo.jpg)
-[Download PDF Version](hardware/schematic/Schematic_pdf/Schematic_v1.3.pdf)
+![Robot Schematic](hardware/schematic_v2/Schematic_jpg/Schematic_v2.1.jpg)
+[Download PDF Version](hardware/schematic_v2/Schematic_pdf/Schematic_v2.1.pdf)
 
 ## 🧠 Software Logic & Path Optimization
 
